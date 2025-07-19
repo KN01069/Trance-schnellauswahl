@@ -2,113 +2,90 @@
 <html lang="de">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Trance-Schnellwahl-App</title>
+  <title>Trance-Schnellauswahl – Modul 1</title>
   <style>
-    body { font-family: sans-serif; line-height: 1.6; padding: 1em; }
-    h1, h2, h3 { margin-top: 1.2em; }
-    details { margin: 0.5em 0; }
-    summary { font-weight: bold; cursor: pointer; background: #f0f0f0; padding: 0.3em; border-radius: 5px; }
-    .modul { border: 1px solid #ccc; padding: 1em; margin-bottom: 1em; border-radius: 8px; }
-    .filters { margin: 1em 0; padding: 1em; border: 1px dashed #aaa; border-radius: 8px; background: #fcfcfc; }
-    label { margin-right: 1em; display: inline-block; }
+    body { font-family: sans-serif; padding: 2em; line-height: 1.6; }
+    h1, h2 { margin-bottom: 0.5em; }
+    .filters { margin-bottom: 2em; padding: 1em; border: 1px solid #ccc; border-radius: 8px; background: #f9f9f9; }
+    .modul details { margin-bottom: 0.5em; }
+    summary { cursor: pointer; font-weight: bold; background: #eef; padding: 0.3em; border-radius: 4px; }
     .hidden { display: none; }
   </style>
 </head>
 <body>
-  <h1>Trance-Schnellwahl-App</h1>
+  <h1>Trance-Schnellauswahl – Modul 1</h1>
+
   <div class="filters">
-    <h2>Filter auswählen</h2>
-    <label><input type="checkbox" value="P" class="filter-checkbox"> Perfektionismus (P)</label>
-    <label><input type="checkbox" value="K" class="filter-checkbox"> Kontrollzwang (K)</label>
-    <label><input type="checkbox" value="Ä" class="filter-checkbox"> Ängstlichkeit (Ä)</label>
-    <label><input type="checkbox" value="T" class="filter-checkbox"> Trauma (T)</label>
-    <label><input type="checkbox" value="M" class="filter-checkbox"> Mangelfokus (M)</label>
-    <label><input type="checkbox" value="U" class="filter-checkbox"> Unruhe (U)</label>
-    <label><input type="checkbox" value="B" class="filter-checkbox"> Beziehung (B)</label>
-    <label><input type="checkbox" value="S" class="filter-checkbox"> Somatisierung (S)</label>
-    <label><input type="checkbox" value="Z" class="filter-checkbox"> Zwang (Z)</label>
-    <label><input type="checkbox" value="A" class="filter-checkbox"> Aphantasie (A)</label>
-    <label><input type="checkbox" value="R" class="filter-checkbox"> Religiosität (R)</label>
-    <label><input type="checkbox" value="E" class="filter-checkbox"> Erschöpfung (E)</label>
+    <strong>Filtern nach Zielgruppen:</strong><br>
+    <label><input type="checkbox" value="M" class="filter"> Mangelfokus</label>
+    <label><input type="checkbox" value="U" class="filter"> Unruhe</label>
+    <label><input type="checkbox" value="E" class="filter"> Erschöpfung</label>
+    <label><input type="checkbox" value="P" class="filter"> Perfektionismus</label>
+    <label><input type="checkbox" value="K" class="filter"> Kontrollzwang</label>
+    <label><input type="checkbox" value="Ä" class="filter"> Ängstlichkeit</label>
     <br><br>
     <button onclick="applyFilters()">Filter anwenden</button>
     <button onclick="resetFilters()">Zurücksetzen</button>
   </div>
-  <div id="moduleContainer">
-<!-- BEGINN ALLER MODULE -->
 
-    <section class='modulblock'>
-<h2>Modul 1: Gedanken und Loslassen</h2>
-      
-   <details data-tags="M U E FG W3">
-    <summary>1.1 Gedanken beobachten</summary>
-    <p>Du kannst einfach beobachten, welche Gedanken auftauchen …</p>
-    <p>Ganz ruhig … ohne sie zu bewerten …</p>
-    <p>Sie kommen … und gehen …</p>
-  </details>
+  <div class="modul">
 
-  <details data-tags="M Ä B FB W5">
-    <summary>1.2 Gedanken fließen lassen</summary>
-    <p>Stell dir vor, deine Gedanken fließen wie ein Bach …</p>
-    <p>Du musst nichts tun … nur zuschauen … wie sie weiterziehen …</p>
-  </details>
+    <details data-tags="M U E FG W3">
+      <summary>1.1 Gedanken kommen und gehen lassen – klassische Suggestion</summary>
+      <p>Gedanken sind da. Und sie verändern sich. Kommen. Und gehen. Und manchmal wird es dazwischen ganz still.</p>
+    </details>
 
-  <details data-tags="M B S FB W5">
-    <summary>1.3 Gedanken auf Wolken</summary>
-    <p>Gedanken steigen auf wie kleine Wolken am Himmel …</p>
-    <p>Du schaust ihnen zu, wie sie sich auflösen … ganz von selbst …</p>
-  </details>
+    <details data-tags="Ä K FG FR W3">
+      <summary>1.2 Gedanken wie Wolken– metaphorischer Zugang </summary>
+      <p>Vielleicht bemerkst du Gedanken. Und vielleicht ist da auch Raum zwischen den Gedanken. Und manches darf einfach weiterfließen, ohne dass du es festhalten musst.</p>
+    </details>
 
-  <details data-tags="M K P FI W5">
-    <summary>1.4 Gedankenzug – Aussteigen am Bahnhof</summary>
-    <p>Manche Gedanken wirken wie ein Zug, der einfach nicht anhält …</p>
-    <p>Aber du darfst aussteigen … an einem sicheren Bahnhof …</p>
-  </details>
+    <details data-tags="B S FG FE W5">
+      <summary>1.3 Gedanken auf Wolken – sanft, symbolisch</summary>
+      <p>Manche Gedanken sind wie kleine Wolken, die am Himmel vorbeiziehen … Du kannst sie anschauen … oder ziehen lassen …</p>
+    </details>
 
-  <details data-tags="K U Z FA W3">
-    <summary>1.5 Gedanken leiser drehen</summary>
-    <p>Du kannst jetzt innerlich an einem Lautstärkeregler drehen …</p>
-    <p>Leiser … noch leiser … bis die Gedanken nur noch ein Flüstern sind …</p>
-  </details>
+    <details data-tags="U Ä FG FI W4">
+      <summary>1.4 Gedankenzug – Aussteigen am Bahnhof</summary>
+      <p>Vielleicht ist da ein Gedankenzug, der durch deinen Kopf rauscht. Und du kannst einfach aussteigen. An einem sicheren, ruhigen Bahnhof.</p>
+    </details>
 
-  <details data-tags="M Ä K FI W3">
-    <summary>1.6 Gedanken wie Kinobilder</summary>
-    <p>Stell dir vor, deine Gedanken laufen wie ein Film vor dir ab …</p>
-    <p>Du sitzt im Zuschauerraum … ohne einzugreifen …</p>
-  </details>
+    <details data-tags="P K FG FI W3">
+      <summary>1.5 Gedanken leiser drehen</summary>
+      <p>Gedanken haben eine Lautstärke. Und vielleicht kannst du sie innerlich etwas leiser drehen. Ganz sanft. Bis sie nur noch Hintergrund sind.</p>
+    </details>
 
-  <details data-tags="K E Z FR W3">
-    <summary>1.7 Gedankenlosigkeit als Möglichkeit</summary>
-    <p>Vielleicht entsteht dazwischen ein Moment der Leere …</p>
-    <p>In dem kein Gedanke wichtig ist … nur Ruhe …</p>
-  </details>
+    <details data-tags="B M FG FB W5">
+      <summary>1.6 Gedanken wie Kinobilder – inneres Zuschauen</summary>
+      <p>Stell dir vor, deine Gedanken laufen wie ein Film vor dir ab. Du sitzt im Zuschauerraum und brauchst gar nichts zu tun – nur beobachten.</p>
+    </details>
 
-  <details data-tags="M E T FS W3">
-    <summary>1.8 Gedanken still werden lassen</summary>
-    <p>Du kannst dich auf das Gefühl konzentrieren …</p>
-    <p>… das entsteht, wenn alles etwas stiller wird … außen … und innen …</p>
-  </details>
+    <details data-tags="E FS FG FI W3">
+      <summary>1.7 Gedankenlosigkeit als Möglichkeit</summary>
+      <p>Zwischen zwei Gedanken kann ein Raum entstehen. Ohne Inhalt. Ohne Bewertung. Nur ein Moment der Ruhe. Vielleicht ist das jetzt so ein Moment.</p>
+    </details>
 
-  <details data-tags="M Ä B FB W5">
-    <summary>1.9 Gedanken abstreifen</summary>
-    <p>Wie Kleidung, die du nicht mehr brauchst …</p>
-    <p>… kannst du deine Gedanken einfach abstreifen … und für einen Moment frei sein …</p>
-  </details>
+    <details data-tags="K M FG FI W4">
+      <summary>1.8 Gedanken still werden lassen – auf das Gefühl der Leere fokussiert</summary>
+      <p>Wenn die Gedanken stiller werden, entsteht manchmal ein Gefühl … von Weite … oder Leere … oder etwas anderem, das in dir auftaucht.</p>
+    </details>
 
-  <details data-tags="M K Z FI W3">
-    <summary>1.10 Gedanken transformieren</summary>
-    <p>Ein störender Gedanke … darf sich verändern …</p>
-    <p>… vielleicht in etwas Ruhiges … Sanftes …</p>
-  </details>
+    <details data-tags="T M FG FB W5">
+      <summary>1.9 Gedanken abstreifen – symbolische Entlastung</summary>
+      <p>Du kannst Gedanken abstreifen wie einen Mantel. Oder wie etwas, das nicht mehr zu dir gehört. Und einfach spüren, wie es leichter wird.</p>
+    </details>
 
-  <details data-tags="R E M FE FB W3 W5">
-    <summary>1.11 Gedanken als Strom vorbeiziehen lassen</summary>
-    <p>Deine Gedanken sind wie ein Fluss …</p>
-    <p>Du stehst am Ufer … sie fließen vorbei …</p>
-    <p>Und du bleibst ganz bei dir …</p>
-  </details>
-</div>
+    <details data-tags="M K P FI FB W4">
+      <summary>1.10 Gedanken transformieren – kreative Umdeutung</summary>
+      <p>Ein Gedanke, der schwer ist, darf sich verwandeln. Vielleicht in Licht. Oder in eine Farbe. Oder in etwas, das dir gut tut.</p>
+    </details>
+
+    <details data-tags="M U FS FI W3">
+      <summary>1.11 Gedanken als Strom vorbeiziehen lassen</summary>
+      <p>Manche Gedanken fließen einfach vorbei – wie Wasser. Du musst sie nicht anhalten. Nur stehen und schauen.</p>
+    </details>
+
+  </div>
 
 
 
