@@ -1,85 +1,136 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-  <meta charset="UTF-8">
-  <title>Trance-Schnellauswahl – Modul 1</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Trance-Einleitungen – Filteransicht</title>
   <style>
-    body { font-family: sans-serif; padding: 2em; line-height: 1.6; }
-    h1, h2 { margin-bottom: 0.5em; }
-    .filters { margin-bottom: 2em; padding: 1em; border: 1px solid #ccc; border-radius: 8px; background: #f9f9f9; }
-    .modul details { margin-bottom: 0.5em; }
-    summary { cursor: pointer; font-weight: bold; background: #eef; padding: 0.3em; border-radius: 4px; }
-    .hidden { display: none; }
+    body {
+      font-family: sans-serif;
+      padding: 2rem;
+      background: #f8f8f8;
+    }
+    h1 {
+      margin-bottom: 1rem;
+    }
+    label {
+      display: block;
+      margin: 0.5rem 0 0.2rem;
+    }
+    select {
+      width: 100%;
+      max-width: 400px;
+      margin-bottom: 1rem;
+    }
+    .entry {
+      background: #fff;
+      border-left: 5px solid #4b9cd3;
+      margin: 1rem 0;
+      padding: 1rem;
+      border-radius: 6px;
+    }
+    .tags {
+      font-size: 0.9rem;
+      color: #777;
+      margin-top: 0.5rem;
+    }
   </style>
 </head>
 <body>
-  <h1>Trance-Schnellauswahl – Modul 1</h1>
+  <h1>Tranceeinleitungen filtern</h1>
+  <label for="zielgruppe">Zielgruppe wählen:</label>
+  <select id="zielgruppe">
+    <option value="">-- bitte wählen --</option>
+    <option value="A">A – Aphantasie</option>
+    <option value="Ä">Ä – Ängstlichkeit</option>
+    <option value="B">B – Beziehung</option>
+    <option value="E">E – Erschöpfung</option>
+    <option value="K">K – Kontrollzwang</option>
+    <option value="M">M – Mangelfokus</option>
+    <option value="P">P – Perfektionismus</option>
+    <option value="R">R – Religiosität</option>
+    <option value="S">S – Somatisierung</option>
+    <option value="T">T – Trauma</option>
+    <option value="U">U – Unruhe</option>
+    <option value="Z">Z – Zwang</option>
+  </select>
 
-  <div class="filters">
-    <strong>Filtern nach Zielgruppen:</strong><br>
-    <label><input type="checkbox" value="M" class="filter"> Mangelfokus</label>
-    <label><input type="checkbox" value="U" class="filter"> Unruhe</label>
-    <label><input type="checkbox" value="E" class="filter"> Erschöpfung</label>
-    <label><input type="checkbox" value="P" class="filter"> Perfektionismus</label>
-    <label><input type="checkbox" value="K" class="filter"> Kontrollzwang</label>
-    <label><input type="checkbox" value="Ä" class="filter"> Ängstlichkeit</label>
-    <br><br>
-    <button onclick="applyFilters()">Filter anwenden</button>
-    <button onclick="resetFilters()">Zurücksetzen</button>
-  </div>
+  <div id="entries"></div>
 
-  <div class="modul 1">
-
-      <section class="modulblock">
-      <h2>Modul 1: Gedanken und Loslassen</h2>
-      <details data-tags="M U E FG W3">
-        <summary>1.1 Gedanken kommen und gehen lassen – klassische Suggestion</summary>
-        <p>Du darfst jetzt einfach nur hier sein…</p>
-        <p>...Und während du das tust, wird dein Inneres ganz ruhig.</p>
-      </details>
-      <!-- usw. alle 11 Varianten -->
-    </section>
-  </div>
-
-    
- 
-<!-- BEGINN MODUL 2 -->
-<section class='modulblock'>
-  <h2>Modul 2: Blickfixation und Augenmüdigkeit</h2>
-  <details data-tags="K P U GV W1 W4">
-    <summary>2.1 Klassische Blickfixation mit Suggestion</summary>
-    <p>Suche dir jetzt einen Punkt, den du ganz leicht mit deinen Augen fixieren kannst – [...]</p>
-  </details>
-  <details data-tags="U K M FB W1 W4">
-    <summary>2.2 Augenmüdigkeit und „Rollladen“-Metapher</summary>
-    <p>Wenn du möchtest, such dir jetzt einen Punkt irgendwo über dir… [...]</p>
-  </details>
-  <!-- weitere Varianten folgen im echten Code -->
-  <details data-tags="A Ä FI W5">
-    <summary>2.9 Indirekt-hypnotische Blickfixation</summary>
-    <p>Wenn du magst, such dir jetzt einen Punkt, auf den du deinen Blick ganz in Ruhe richten kannst [...]</p>
-  </details>
-</section>
-
-
-
-  </div>
   <script>
-    function applyFilters() {
-      const checkboxes = document.querySelectorAll('.filter-checkbox');
-      const activeTags = Array.from(checkboxes).filter(cb => cb.checked).map(cb => cb.value);
-      const modules = document.querySelectorAll('.modul');
-      modules.forEach(mod => {
-        const tags = mod.getAttribute('data-tags').split(" ");
-        const visible = activeTags.every(tag => tags.includes(tag));
-        mod.classList.toggle("hidden", !visible);
-      });
-    }
+    const daten = [
+      {
+        titel: "1.1 Gedanken kommen und gehen lassen",
+        tags: ["M", "U", "E"],
+        text: `Du darfst jetzt einfach nur hier sein. Nichts tun, nichts leisten...`
+      },
+      {
+        titel: "1.2 Gedanken wie Wolken",
+        tags: ["M", "Ä", "B"],
+        text: `Vielleicht kannst du dir vorstellen, dass dein Geist ein weiter Himmel ist...`
+      },
+      {
+        titel: "1.3 Gedanken wie Boote / Blätter auf Wasser",
+        tags: ["M", "B", "S"],
+        text: `Stell dir vor, du sitzt an einem Fluss...`
+      },
+      {
+        titel: "1.4 Gedankenzug – Aussteigen am Bahnhof",
+        tags: ["K", "M", "P"],
+        text: `Lege dich bequem hin und richte dich so aus...`
+      },
+      {
+        titel: "1.5 Gedanken leiser drehen",
+        tags: ["U", "K", "Z"],
+        text: `Setz dich bequem hin. Vielleicht merkst du...`
+      },
+      {
+        titel: "1.6 Gedanken wie Kinobilder",
+        tags: ["M", "K", "Ä"],
+        text: `Lege dich bequem hin und richte deine Aufmerksamkeit...`
+      },
+      {
+        titel: "1.7 Gedankenlosigkeit als Möglichkeit",
+        tags: ["K", "Z", "E"],
+        text: `Lege dich bequem hin, so wie es für dich angenehm ist...`
+      },
+      {
+        titel: "1.8 Gedanken still werden lassen – auf das Gefühl der Leere fokussiert",
+        tags: ["M", "T", "E"],
+        text: `Lege dich bequem hin und schließe deine Augen...`
+      },
+      {
+        titel: "1.9 Gedanken spüren – sprachreduziert",
+        tags: ["Ä", "M", "B"],
+        text: `Wenn du magst, nimm dir einen Moment...`
+      },
+      {
+        titel: "1.10 Gedankenkette lösen – Variante für Zwang / Gedankenschleifen",
+        tags: ["Z", "K", "M"],
+        text: `Manche Gedanken haben eine besondere Eigenschaft...`
+      },
+      {
+        titel: "1.11 Gedanken still – spirituell offener Zugang",
+        tags: ["R", "E", "M"],
+        text: `Vielleicht magst du jetzt einmal ganz bewusst...`
+      }
+    ];
 
-    function resetFilters() {
-      document.querySelectorAll('.filter-checkbox').forEach(cb => cb.checked = false);
-      document.querySelectorAll('.modul').forEach(mod => mod.classList.remove("hidden"));
-    }
+    const select = document.getElementById('zielgruppe');
+    const entriesDiv = document.getElementById('entries');
+
+    select.addEventListener('change', () => {
+      const selected = select.value;
+      entriesDiv.innerHTML = '';
+      const gefiltert = daten.filter(e => e.tags.includes(selected));
+      gefiltert.forEach(e => {
+        const div = document.createElement('div');
+        div.className = 'entry';
+        div.innerHTML = `<strong>${e.titel}</strong><div class="tags">Zielgruppen: ${e.tags.join(', ')}</div><p>${e.text}</p>`;
+        entriesDiv.appendChild(div);
+      });
+    });
   </script>
 </body>
 </html>
+
